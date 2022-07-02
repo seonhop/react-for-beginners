@@ -8,17 +8,24 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-        const Title = <h3>hi</h3>;
         function App() {
-            const [counter, setCounter] = React.useState(0);
-            const onClick = () => {
-                setCounter((current) => current + 1);
+            const [minutes, setMinutes] = React.useState();
+            const onChange = (event) => {
+                console.log(event.target.value);
             };
-
             return (
                 <div>
-                    <h3>Total Clicks: {counter}</h3>
-                    <button onClick={onClick}>Click me</button>
+                    <h1 className="title">Super Converter</h1>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input
+                        value={minutes}
+                        id="minutes"
+                        type="number"
+                        placeholder="Minutes"
+                        onChange={onChange}
+                    />
+                    <label htmlFor="hours">Hours</label>
+                    <input id="hours" type="number" placeholder="Hours" />
                 </div>
             );
         }
